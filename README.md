@@ -78,3 +78,5 @@ With the increase in data, I was able to find more niche problem areas and recor
 After the collection and augmentation process, I had 43,467 data points. I randomly shuffled the data and split the data as 60% train/ 20% validation/ 20% test.
 
 I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 100. 
+
+My final video is [here](final.mp4) and I wasn't able to upload my final model to github due to size constraints but it is stored on dropbox [here](https://www.dropbox.com/s/tliozs68svsc95l/model.h5?dl=0)
