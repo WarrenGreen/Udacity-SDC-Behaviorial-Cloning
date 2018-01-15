@@ -70,28 +70,32 @@ print(len(validation_data), len(validation_data)/total)
 import random
 
 def generator(samples, batch_size=32):
+    '''
+    generic training generator for image/label input
+    '''
     num_samples = len(samples)
     samples = np.array(samples)
+    # shuffle filename/label pairs
     np.random.shuffle(samples)
     print(samples[0])
     offset = 0
     while 1: # Loop forever so the generator never terminates
-                    
-        if offset >= num_samples:
+        
+        if offset >= num_samples: # reset offset to loop
             offset = 0
         vals = np.zeros((batch_size, 1))
         imgs = np.zeros((batch_size, IMAGE_HEIGHT,IMAGE_WIDTH, 3))
         index = 0
         while index < batch_size:
             batch_sample = samples[offset]
-            offset += 1
+            offset += 1 # maintain dataset location
             if offset >= num_samples:
                 offset = 0
             filename = batch_sample[0]
-            center_image = misc.imread(filename)
+            center_image = misc.imread(filename) #read image
             imgs[index] = center_image
-            vals[index][0] = float(batch_sample[1]) #steering angle
-            index += 1
+            vals[index][0] = float(batch_sample[1]) # steering angle
+            index += 1 # maintain batch location
 
         X_train = imgs
         y_train = vals
