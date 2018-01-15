@@ -61,7 +61,7 @@ My first step was to split the data into training/validation/test sets with a 0.
 
 #### 2. Final Model Architecture
 
-The final model architecture consisted of four conv net layers and 3 fully connected layers with an output layer. The 4 convolutional layers have filters in a base2 multiple for tensorflow training optimization. The fully connected layers gradually decrease in size until reaching the output layer. I included dropouts in the training to avoid overfitting.
+The final model architecture consisted of four conv net layers and 3 fully connected layers with an output layer. The 4 convolutional layers have filters in a base2 multiple for tensorflow training optimization. The fully connected layers gradually decrease in size until reaching the output layer. I included dropouts in the training to avoid overfitting. As well, I used ELU activation layer for most hidden layers to add non-linearity and to combat vanishing gradient. An advantage of ELU over RELU is that the mean of the activation function is closer to zero which can prompt faster learning.
 
 #### 3. Creation of the Training Set & Training Process
 
